@@ -1,12 +1,14 @@
 let objects = [];
 let bg;
 let character;
+let p;
 var timer = 30;
 var clicks = 0
 
 function preload() {
   bg = loadImage('cityscape.jpg');
-  character = loadImage("character2.png")
+  character = loadImage("character2.png");
+  p= loadImage("package.png");
 }
 
 function setup() {
@@ -66,16 +68,13 @@ function mousePressed() {
 class object {
   constructor(x, y) {
     this.x = x;
-    this.y = random(0, 400);
+    this.y = random(0, 320);
     this.radius = random(50, 80);
-    this.color1 = random(100, 200);
-    this.color2 = random(100, 200);
-    this.color3 = random(100, 200);
   }
   clicked() {
-    var d = dist(mouseX, mouseY, this.x, this.y);
+    var d = dist(mouseX-25, mouseY-20, this.x, this.y);
     if (d < this.radius / 2 == true) {
-      this.radius = this.radius + 30
+      this.radius = 0.01;
       clicks++;
     }
     else {
@@ -91,10 +90,7 @@ class object {
   }
   display() {
     push();
-    strokeWeight(4);
-    noFill();
-    stroke(this.color1, this.color2, this.color3);
-    circle(this.x, this.y, this.radius);
+    image(p,this.x, this.y, this.radius,this.radius);
     pop();
 
     textSize(30);
