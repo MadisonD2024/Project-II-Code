@@ -4,6 +4,8 @@ let character;
 let p;
 var timer = 30;
 var clicks = 0
+let score = 0;
+let highscore = 0;
 
 function preload() {
   bg = loadImage('cityscape.jpg');
@@ -44,9 +46,17 @@ function draw() {
 
     push();
     fill(225);
-    text('GAME OVER', width / 3, height / 2)
+    textAlign(CENTER,CENTER)
+    text('GAME OVER',300, 150)
     textSize(30);
     text(timer, 550, 35);
+    pop();
+
+    push();
+    fill(225);
+    textAlign(CENTER, CENTER)
+    text('score: '+ clicks,300,200);
+    text('highscore: '+ clicks,300,250);
     pop();
 
     push();
@@ -66,7 +76,7 @@ function mousePressed() {
 }
 
 class object {
-  constructor(x, y) {
+  constructor(x) {
     this.x = x;
     this.y = random(0, 320);
     this.radius = random(50, 80);
@@ -95,7 +105,7 @@ class object {
 
     textSize(30);
     text(timer, 550, 35);
-  }
+}
 }
 
 
