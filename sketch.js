@@ -79,7 +79,7 @@ function draw() {
     fill(225);
     textAlign(CENTER,CENTER)
     text('GAME OVER',300, 150)
-    textSize(20);
+    textSize(35);
     text(timer, 550, 35);
     pop();
 
@@ -93,7 +93,7 @@ function draw() {
 
     push();
     fill(225);
-    textSize(35);
+    textSize(30);
     text(clicks, 30, 35)
     pop(); 
   }
