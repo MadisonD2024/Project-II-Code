@@ -2,19 +2,24 @@ let objects = [];
 let bg;
 let character;
 let p;
+let p2;
 var timer = 30;
 var clicks = 0
 
 function preload() {
-  bg = loadImage('cityscape.jpg');
-  character = loadImage("character2.png");
-  p= loadImage("package.png");
+  bg = loadImage('cityscape3.jpeg');
+  character = loadImage("character1.png");
+  p = loadImage("package.png");
+  p2 = loadImage("package2.png");
 }
 
 function setup() {
   createCanvas(600, 400);
+  createCanvas(600, 400);
   for (let i = 0; i < 200; i++) {
-    objects[i] = new object(150 * i);
+    if (random() < 0.7) {
+      objects[i] = new Type1(150 * i);
+    } else objects[i] = new Type2(150 * i);
   }
 }
 
@@ -24,7 +29,7 @@ function draw() {
     object.display();
     object.move();
   }
-  image(character, mouseX - 20, mouseY - 20, character.width * 0.1, character.height * 0.1);
+  image(character, mouseX - 20, mouseY - 20, character.width * 0.15, character.height * 0.15);
 
   fill(225);
   textSize(35);
@@ -60,37 +65,39 @@ function draw() {
 
 function mousePressed() {
   for (let object of objects) {
-    console.log('pressed');
     object.clicked();
   }
 }
 
 class object {
-  constructor(x, y) {
-    this.x = x;
-    this.y = random(0, 320);
-    this.radius = random(50, 80);
-  }
-  clicked() {
-    var d = dist(mouseX-25, mouseY-20, this.x, this.y);
-    if (d < this.radius / 2 == true) {
-      this.radius = 0.01;
-      clicks++;
-    }
-    else {
-      if (d < this.radius / 2 == false) {
-        clicks += 0;
-      }
-    }
-  }
   move() {
     if (mouseX >= 0) {
       this.x -= 4
     }
   }
+  clicked() {
+    var d = dist(mouseX - 25, mouseY - 20, this.x, this.y);
+    if (d < this.radius / 2 == true) {
+      this.radius = 0.01;
+      clicks++;
+    } else {
+      if (d < this.radius / 2 == false) {
+        clicks += 0;
+      }
+    }
+  }
+}
+
+class Type1 extends object {
+  constructor(x, y) {
+    super();
+    this.x = x;
+    this.y = random(0, 320);
+    this.radius = random(50, 80);
+  }
   display() {
     push();
-    image(p,this.x, this.y, this.radius,this.radius);
+    image(p, this.x, this.y, this.radius, this.radius);
     pop();
 
     textSize(30);
@@ -98,4 +105,19 @@ class object {
   }
 }
 
+class Type2 extends object {
+  constructor(x, y) {
+    super();
+    this.x = x;
+    this.y = random(0, 320);
+    this.radius = random(50, 80);
+  }
+  display() {
+    push();
+    image(p2, this.x, this.y, this.radius, this.radius);
+    pop();
 
+    textSize(30);
+    text(timer, 550, 35);
+  }
+}
