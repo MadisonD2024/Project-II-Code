@@ -11,8 +11,8 @@ var mode;
 let lines = 'Deliver as many\npackages as you can\nbefore sunset!'
 
 function preload() {
-  bg = loadImage('cityscape.jpg');
-  character = loadImage("character2.png");
+  bg = loadImage('cityscape3.jpg');
+  character = loadImage("character2copy.png");
   p= loadImage("package.png");
   song = loadSound('TechnoSong.mp3')
   mode = 0
