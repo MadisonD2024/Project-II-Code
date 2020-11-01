@@ -1,4 +1,4 @@
-let objects = [];
+let packages = [];
 let bg;
 let character;
 let p;
@@ -18,16 +18,16 @@ function setup() {
   createCanvas(600, 400);
   for (let i = 0; i < 200; i++) {
     if (random() < 0.7) {
-      objects[i] = new Type1(150 * i);
-    } else objects[i] = new Type2(150 * i);
+      packages[i] = new Package1(150 * i);
+    } else packages[i] = new Package2(150 * i);
   }
 }
 
 function draw() {
   background(bg);
-  for (let object of objects) {
-    object.display();
-    object.move();
+  for (let Package of packages) {
+    Package.display();
+    Package.move();
   }
   image(character, mouseX - 20, mouseY - 20, character.width * 0.15, character.height * 0.15);
 
@@ -64,16 +64,25 @@ function draw() {
 
 
 function mousePressed() {
-  for (let object of objects) {
-    object.clicked();
+  for (let Package of packages) {
+    Package.clicked();
   }
 }
 
-class object {
+class Package {
   move() {
     if (mouseX >= 0) {
       this.x -= 4
     }
+  }
+}
+
+class Package1 extends Package {
+  constructor(x, y) {
+    super();
+    this.x = x;
+    this.y = random(0, 320);
+    this.radius = random(50, 80);
   }
   clicked() {
     var d = dist(mouseX - 25, mouseY - 20, this.x, this.y);
@@ -86,15 +95,6 @@ class object {
       }
     }
   }
-}
-
-class Type1 extends object {
-  constructor(x, y) {
-    super();
-    this.x = x;
-    this.y = random(0, 320);
-    this.radius = random(50, 80);
-  }
   display() {
     push();
     image(p, this.x, this.y, this.radius, this.radius);
@@ -105,12 +105,23 @@ class Type1 extends object {
   }
 }
 
-class Type2 extends object {
+class Package2 extends Package {
   constructor(x, y) {
     super();
     this.x = x;
     this.y = random(0, 320);
     this.radius = random(50, 80);
+  }
+  clicked() {
+    var d = dist(mouseX - 25, mouseY - 20, this.x, this.y);
+    if (d < this.radius / 2 == true) {
+      this.radius = 0.01;
+      clicks+=2;
+    } else {
+      if (d < this.radius / 2 == false) {
+        clicks += 0;
+      }
+    }
   }
   display() {
     push();
