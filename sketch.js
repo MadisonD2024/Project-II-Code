@@ -6,11 +6,13 @@ var timer = 30;
 var clicks = 0
 let score = 0;
 let highscore = 0;
+let song;
 
 function preload() {
   bg = loadImage('cityscape.jpg');
   character = loadImage("character2.png");
   p= loadImage("package.png");
+  song = loadSound('TechnoSong.mp3')
 }
 
 function setup() {
