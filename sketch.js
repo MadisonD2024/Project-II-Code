@@ -17,6 +17,7 @@ function preload() {
 
 function setup() {
   createCanvas(600, 400);
+  song.play();
   for (let i = 0; i < 200; i++) {
     objects[i] = new object(150 * i);
   }
@@ -36,6 +37,7 @@ function draw() {
 
   if (frameCount % 60 == 0 && timer > 0) {
     timer--;
+    // song.play();
   }
   if (timer == 0) {
     colorMode(RGB);
@@ -45,6 +47,7 @@ function draw() {
     fill(a, b, c);
     rect(0, 0, 600, 400);
     noLoop();
+    song.stop();
 
     push();
     fill(225);
@@ -75,6 +78,7 @@ function mousePressed() {
     console.log('pressed');
     object.clicked();
   }
+  
 }
 
 class object {
