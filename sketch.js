@@ -5,12 +5,19 @@ let p;
 let p2;
 var timer = 30;
 var clicks = 0
+let score = 0;
+let highscore = 0;
+let song;
+var mode;
+let lines = 'Deliver as many\npackages as you can\nbefore sunset!'
 
 function preload() {
   bg = loadImage('cityscape3.jpeg');
   character = loadImage("character1.png");
   p = loadImage("package.png");
   p2 = loadImage("package2.png");
+  song = loadSound('TechnoSong.mp3')
+  mode = 0
 }
 
 function setup() {
@@ -35,33 +42,69 @@ function draw() {
   textSize(35);
   text(clicks, 30, 35)
 
+  if (mode == 0) {
+
+    push();
+    colorMode(RGB);
+    fill(200,10,200);
+    rect(0, 0, 600, 400); 
+    pop();
+
+    push();
+    textSize(35);
+    fill(225);
+    textAlign(CENTER)
+    text("Press 'Enter' to Start", 300, 180);
+    pop();
+
+    push();
+    textAlign(CENTER);
+    textSize(25);
+    textLeading(30);
+    text(lines, 300, 220)
+    pop();
+
+    song.stop();
+  }
   if (frameCount % 60 == 0 && timer > 0) {
     timer--;
   }
   if (timer == 0) {
     colorMode(RGB);
-    a = random(225);
-    b = random(225);
-    c = random(225);
-    fill(a, b, c);
-    rect(0, 0, 600, 400);
-    noLoop();
+    fill(200,10,200);
+    rect(0, 0, 600, 400); 
+    song.stop();
 
     push();
     fill(225);
-    text('GAME OVER', width / 3, height / 2)
-    textSize(30);
+    textAlign(CENTER,CENTER)
+    text('GAME OVER',300, 150)
+    textSize(20);
     text(timer, 550, 35);
+    pop();
+
+    push();
+    fill(225);
+    textAlign(CENTER, CENTER)
+    textSize(30);
+    text('Packages Delivered: '+ clicks,300,200);
+    text('Highscore: '+ clicks,300,250);
     pop();
 
     push();
     fill(225);
     textSize(35);
     text(clicks, 30, 35)
-    pop();
+    pop(); 
   }
 }
 
+function keyPressed() {
+  if (keyCode===ENTER) {
+    mode=1;
+    song.play();
+  }
+}
 
 function mousePressed() {
   for (let Package of packages) {
