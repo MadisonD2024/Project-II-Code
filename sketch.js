@@ -99,7 +99,7 @@ function draw() {
 function keyPressed() {
   if (keyCode===ENTER) {
     mode=1;
-    // song.play();
+    song.play();
   }
 }
 function mousePressed() {
@@ -126,12 +126,10 @@ class object {
     if (d < this.radius / 2 == true) {
       this.radius = 0.01;
       clicks++;
-      // song.play();
     }
     else {
       if (d < this.radius / 2 == false) {
         clicks += 0;
-        // song.stop();
       }
     }
   }
