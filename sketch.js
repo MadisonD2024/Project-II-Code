@@ -35,7 +35,7 @@ function draw() {
     Package.display();
     Package.move();
   }
-  image(character, mouseX - 20, mouseY - 20, character.width * 0.15, character.height * 0.15);
+  image(character, mouseX - 57, mouseY - 15, character.width * 0.15, character.height * 0.15);
 
   fill(225);
   textSize(35);
