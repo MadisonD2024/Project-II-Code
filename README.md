@@ -1,7 +1,7 @@
 # CyberDash
 Description: In our game, a flying car races against the clock to deliver packages in a futuristic city.
 
-![](/School/Gamepicture.png)
+![Game Image](/School/Gamepicture.png)
 
 Usage: Click on the packages to deliver as many as you can before the time runs out!
 
@@ -15,6 +15,7 @@ Magic Monk for creating a start screen https://www.youtube.com/watch?v=TgHhEzKlL
 We also reached out to Professor Steele and Linda for help with visualization when the user clicks on the packages, creating classes and subclasses, how to add another type of package, and how to create a counter and timer.
 
 Inspirations:\
+Cloudpunk https://en.wikipedia.org/wiki/Cloudpunk \
 Osu https://jscalc-blog.com/osu-mouse-dpi-to-tablet-area-calculator/ \
 Voez https://www.youtube.com/watch?v=9Rrcp4oYFXw \
 Love Live https://www.youtube.com/watch?v=fF62L8c5faQ \
