@@ -3,12 +3,14 @@ let bg;
 let character;
 let p;
 let p2;
-var timer = 5;
+var timer = 30;
 var clicks = 0
 let score = 0;
 let highscore = 0;
 let song;
 var mode;
+var slider;
+var instruction;
 let lines = 'Click to deliver as many packages\nas you can before sunset!'
 
 function preload() {
@@ -29,6 +31,8 @@ function setup() {
   }
   // let button = createButton("Restart");
   //   button.mousePressed(restartGame);
+  instruction = createP('Speed mode:');
+  slider = createSlider(1,5,3);
 }
 
 function draw() {
@@ -73,17 +77,11 @@ function draw() {
     song.stop();
   }
 
-<<<<<<< HEAD
-  if (mode=1 && frameCount % 60 == 0 && timer > 0) {
-    timer--;
-  }
-=======
   if (mode == 1) {
   if (frameCount % 60 == 0 && timer > 0) {
       timer--;
     }
 
->>>>>>> e45dd77afac36d1624c96eb2cb328ec6696beb8f
   if (timer == 0) {
     colorMode(RGB);
     fill(200,10,200);
@@ -120,11 +118,7 @@ function draw() {
 function keyPressed() {
   if (keyCode===ENTER) {
     mode=1;
-<<<<<<< HEAD
-    //song.play();
-=======
     // song.play();
->>>>>>> e45dd77afac36d1624c96eb2cb328ec6696beb8f
   }
 }
 
@@ -141,7 +135,7 @@ function mousePressed() {
 class Package {
   move() {
     if (mouseX >= 0) {
-      this.x -= 3
+      this.x -= slider.value();
     }
   }
   // if (mouseIsPressed === true) {
