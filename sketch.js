@@ -3,7 +3,7 @@ let bg;
 let character;
 let p;
 let p2;
-var timer = 5;
+var timer = 30;
 var clicks = 0
 let score = 0;
 let highscore = 0;
