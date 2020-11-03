@@ -3,7 +3,7 @@ let bg;
 let character;
 let p;
 let p2;
-var timer = 30;
+var timer = 5;
 var clicks = 0
 let score = 0;
 let highscore = 0;
@@ -66,7 +66,7 @@ function draw() {
     song.stop();
   }
 
-  if (frameCount % 60 == 0 && timer > 0) {
+  if (mode=1 && frameCount % 60 == 0 && timer > 0) {
     timer--;
   }
   if (timer == 0) {
@@ -102,7 +102,7 @@ function draw() {
 function keyPressed() {
   if (keyCode===ENTER) {
     mode=1;
-    song.play();
+    //song.play();
   }
 }
 
@@ -115,7 +115,7 @@ function mousePressed() {
 class Package {
   move() {
     if (mouseX >= 0) {
-      this.x -= 4
+      this.x -= 3
     }
   }
   // if (mouseIsPressed === true) {
