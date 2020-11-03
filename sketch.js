@@ -9,6 +9,8 @@ let score = 0;
 let highscore = 0;
 let song;
 var mode;
+var slider;
+var instruction;
 let lines = 'Click to deliver as many packages\nas you can before sunset!'
 
 function preload() {
@@ -29,6 +31,8 @@ function setup() {
   }
   // let button = createButton("Restart");
   //   button.mousePressed(restartGame);
+  instruction = createP('Speed mode:');
+  slider = createSlider(1,5,3);
 }
 
 function draw() {
@@ -131,7 +135,7 @@ function mousePressed() {
 class Package {
   move() {
     if (mouseX >= 0) {
-      this.x -= 3
+      this.x -= slider.value();
     }
   }
   // if (mouseIsPressed === true) {
