@@ -3,13 +3,13 @@ let bg;
 let character;
 let p;
 let p2;
-var timer = 30;
+var timer = 5;
 var clicks = 0
 let score = 0;
 let highscore = 0;
 let song;
 var mode;
-let lines = 'Deliver as many\npackages as you can\nbefore sunset!'
+let lines = 'Click to deliver as many packages\nas you can before sunset!'
 
 function preload() {
   bg = loadImage('cityscape3.jpeg');
@@ -21,12 +21,14 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(600, 400);
+  createCanvas(800,400);
   for (let i = 0; i < 200; i++) {
     if (random() < 0.7) {
       packages[i] = new Package1(150 * i);
     } else packages[i] = new Package2(150 * i);
   }
+  // let button = createButton("Restart");
+  //   button.mousePressed(restartGame);
 }
 
 function draw() {
@@ -46,49 +48,57 @@ function draw() {
     push();
     colorMode(RGB);
     fill(200,10,200);
-    rect(0, 0, 600, 400); 
+    rect(0, 0, 800, 400); 
     pop();
 
     push();
     textSize(35);
     fill(225);
     textAlign(CENTER)
-    text("Press 'Enter' to Start", 300, 180);
+    text("Press 'Enter' to Start", 400, 150);
     pop();
+
+    push();
+    textSize(20);
+    textAlign(CENTER)
+    text('Tip: Dark Packages = 1pt, Light Packages = 2pts', 400, 325);
 
     push();
     textAlign(CENTER);
     textSize(25);
     textLeading(30);
-    text(lines, 300, 220)
+    text(lines, 400, 220)
     pop();
 
     song.stop();
   }
 
+  if (mode == 1) {
   if (frameCount % 60 == 0 && timer > 0) {
-    timer--;
-  }
+      timer--;
+    }
+
   if (timer == 0) {
     colorMode(RGB);
     fill(200,10,200);
-    rect(0, 0, 600, 400); 
+    rect(0, 0, 800, 400); 
     song.stop();
 
     push();
     fill(225);
     textAlign(CENTER,CENTER)
-    text('GAME OVER',300, 150)
+    text('GAME OVER',400, 150)
     textSize(35);
-    text(timer, 550, 35);
+    text(timer, 750, 35);
     pop();
 
     push();
     fill(225);
     textAlign(CENTER, CENTER)
     textSize(30);
-    text('Packages Delivered: '+ clicks,300,200);
-    text('Highscore: '+ clicks,300,250);
+    text('Score: '+ clicks,400,200);
+    text('Highscore: '+ clicks,400,235);
+    text('Refresh to Restart',400,300);
     pop();
 
     push();
@@ -98,13 +108,19 @@ function draw() {
     pop(); 
   }
 }
+}
+
 
 function keyPressed() {
   if (keyCode===ENTER) {
     mode=1;
-    song.play();
+    // song.play();
   }
 }
+
+// function restartGame() {
+//   mode=0
+// }
 
 function mousePressed() {
   for (let Package of packages) {
@@ -115,7 +131,7 @@ function mousePressed() {
 class Package {
   move() {
     if (mouseX >= 0) {
-      this.x -= 4
+      this.x -= 3
     }
   }
   // if (mouseIsPressed === true) {
@@ -150,7 +166,7 @@ class Package1 extends Package {
     pop();
 
     textSize(30);
-    text(timer, 550, 35);
+    text(timer, 750, 35);
   }
 }
 
@@ -178,6 +194,6 @@ class Package2 extends Package {
     pop();
 
     textSize(30);
-    text(timer, 550, 35);
+    text(timer, 750, 35);
   }
 }
