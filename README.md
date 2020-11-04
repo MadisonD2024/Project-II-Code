@@ -2,7 +2,7 @@
 ## Description:
 In our game, a flying car races against the clock to deliver packages in a futuristic city.
 
-![Game Image](Users/madi/Desktop/Project_II.Code/gamepicture.png)
+![Game Image](https://github.com/MadisonD2024/Project-II-Code/blob/master/Gamepicture.png)
 
 ## Usage:
 Click on the packages to deliver as many as you can before the time runs out!
