@@ -3,7 +3,7 @@ let bg;
 let character;
 let p;
 let p2;
-var timer = 30;
+var timer = 5;
 var clicks = 0
 let score = 0;
 let highscore = 0;
@@ -118,7 +118,7 @@ function GameOver() {
   textSize(30);
   text('Score: ' + clicks, 400, 200);
   text('Highscore: ' + clicks, 400, 235);
-  text('Click to Restart', 400, 300);
+  text("Click the 'Restart' Button to Play Again", 400, 300);
   pop();
 
   push();
@@ -130,7 +130,8 @@ function GameOver() {
 
 function restartGame() {
   mode = 0;
-  timer = 30;
+  timer = 5;
+  clicks = 0;
 }
 
 function mousePressed() {
