@@ -96,7 +96,7 @@ function draw() {
 function keyPressed() {
   if (keyCode === ENTER) {
     mode = 1;
-    // song.play();
+    song.play();
   }
 }
 
