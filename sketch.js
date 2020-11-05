@@ -32,7 +32,7 @@ function setup() {
   button.mousePressed(restartGame);
   GameOver();
   instruction = createP('Speed mode:');
-  slider = createSlider(1, 5, 3);
+  slider = createSlider(2, 7, 4);
   for (let i = 0; i < 200; i++) {
     if (random() < 0.7) {
       packages[i] = new Package1(150 * i);
@@ -41,6 +41,7 @@ function setup() {
 }
 
 function draw() {
+  background(bg);
   if (mode == 0) {
     push();
     colorMode(RGB);
@@ -73,7 +74,6 @@ function draw() {
     song.stop();
   }
   if (mode == 1) {
-    background(bg);
     for (let Package of packages) {
       Package.display();
       Package.move();
@@ -159,14 +159,14 @@ class Package1 extends Package {
   }
   clicked() {
     var d = dist(mouseX - 25, mouseY - 20, this.x, this.y);
-    if (d < this.radius / 2 == true) {
+    if (d < this.radius / 2) {
       this.radius = 0.01;
       clicks++;
       sound.play();
       // textSize(35);
       // text('+2',mouseX,mouseY - 40);
     } else {
-      if (d < this.radius / 2 == false) {
+      if (d > this.radius / 2) {
         clicks += 0;
       }
     }
@@ -190,14 +190,14 @@ class Package2 extends Package {
   }
   clicked() {
     var d = dist(mouseX - 25, mouseY - 20, this.x, this.y);
-    if (d < this.radius / 2 == true) {
+    if (d < this.radius / 2) {
       this.radius = 0.01;
       clicks += 2;
       // textSize(35);
       // text('+2',mouseX,mouseY - 40);
       sound.play();
     } else {
-      if (d < this.radius / 2 == false) {
+      if (d > this.radius / 2) {
         clicks += 0;
       }
     }
