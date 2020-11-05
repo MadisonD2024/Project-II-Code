@@ -12,6 +12,7 @@ var mode;
 var slider;
 var instruction;
 let lines = 'Click to deliver as many packages\nas you can before sunset!'
+let sound;
 
 function preload() {
   bg = loadImage('cityscape3.jpeg');
@@ -19,6 +20,7 @@ function preload() {
   p = loadImage("package.png");
   p2 = loadImage("package2.png");
   song = loadSound('TechnoSong.mp3')
+  sound = loadSound('SoundEffect.mp3')
   mode = 0
 }
 
@@ -94,7 +96,7 @@ function draw() {
 function keyPressed() {
   if (keyCode === ENTER) {
     mode = 1;
-    song.play();
+    // song.play();
   }
 }
 
@@ -160,6 +162,9 @@ class Package1 extends Package {
     if (d < this.radius / 2 == true) {
       this.radius = 0.01;
       clicks++;
+      sound.play();
+      // textSize(35);
+      // text('+2',mouseX,mouseY - 40);
     } else {
       if (d < this.radius / 2 == false) {
         clicks += 0;
@@ -188,6 +193,9 @@ class Package2 extends Package {
     if (d < this.radius / 2 == true) {
       this.radius = 0.01;
       clicks += 2;
+      // textSize(35);
+      // text('+2',mouseX,mouseY - 40);
+      sound.play();
     } else {
       if (d < this.radius / 2 == false) {
         clicks += 0;
