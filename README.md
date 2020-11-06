@@ -14,6 +14,7 @@ Kathryn Zhou
 ## Acknowledgements:
 - The Coding Train for clicking on objects and mouse interaction
 - ByteSize Coding for side-scrolling effect https://www.youtube.com/watch?v=4Ud3oX-cKxc 
+- Sound Effects https://www.youtube.com/watch?v=RfkcI8dhfsQ 
 - TeknoAXE's Royalty Free Music for background song "Nineteen Eighty Seven" https://www.youtube.com/watch?v=j6XKMywP3-g&list=PLC463C3BD71D711C0&index=28 
 - Magic Monk for creating a start screen https://www.youtube.com/watch?v=TgHhEzKlLb4 
 - We also reached out to Professor Steele and Linda for help with visualization when the user clicks on the packages, creating classes and subclasses, how to add another type of package, and how to create a counter and timer.
