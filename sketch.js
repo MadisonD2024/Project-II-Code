@@ -163,8 +163,6 @@ class Package1 extends Package {
       this.radius = 0.01;
       clicks++;
       sound.play();
-      // textSize(35);
-      // text('+2',mouseX,mouseY - 40);
     } else {
       if (d > this.radius / 2) {
         clicks += 0;
